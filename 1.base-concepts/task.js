@@ -1,6 +1,14 @@
 "use strict"
 function solveEquation(a, b, c) {
-  let arr = [];
+  const arr = [];
+  const discriminant = (b * b) - 4 * a * c;
+
+  if (discriminant === 0) {
+    arr.push(b * -1 / 2 * a);
+  } else if (discriminant > 0) {
+    arr.push(((b * -1) + Math.sqrt(discriminant)) / (2 * a));
+    arr.push((b * -1 - Math.sqrt(discriminant)) / (2 * a));
+  }
   
   return arr;
 }
