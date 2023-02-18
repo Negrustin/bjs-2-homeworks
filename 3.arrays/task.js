@@ -1,7 +1,25 @@
+"use strict;"
+
+
+
 function compareArrays(arr1, arr2) {
-  
+if (arr1.length !== arr2.length) {
+  return false;
 }
 
-function getUsersNamesInAgeRange(users, gender) {
-  
+return arr1.every((value, index) => value === arr2[index]);
 }
+
+
+
+function getUsersNamesInAgeRange(users, gender) {
+  const filteredUsers = users.filter(user => user.gender === gender);
+  if (filteredUsers.length === 0) {
+    return 0;
+  }
+  const sumOfAges = filteredUsers.map(user => user.age).reduce((acc, cur) => acc + cur);
+  return sumOfAges / filteredUsers.length;
+}
+
+
+
